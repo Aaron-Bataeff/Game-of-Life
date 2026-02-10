@@ -12,4 +12,16 @@ public class Board
         this.cols = cols;
         grid = new bool[rows, cols];
     }
+
+    public void Print()
+    {
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 0; c < cols; c++)
+            {
+                Console.Write(grid[r, c] ? "O " : ". ");
+            }
+            Console.WriteLine();
+        }
+    }
 }
