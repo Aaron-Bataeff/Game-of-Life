@@ -38,6 +38,27 @@ public class Board
 
     public int CountNeighbors(int row, int col)
     {
-        return 0;
+        int count = 0;
+
+        for (int r = row - 1; r <= row + 1; r++)
+        {
+            for (int c = col - 1; c <= col + 1; c++)
+            {
+                // skip the cell itself
+                if (r == row && c == col)
+                    continue;
+
+                // stay within bounds
+                if (r >= 0 && r < rows && c >= 0 && c < cols)
+                {
+                    if (grid[r, c])
+                    {
+                        count++;
+                    }
+                }
+            }
+        }
+
+        return count;
     }
 }
