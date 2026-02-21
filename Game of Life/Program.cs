@@ -6,13 +6,14 @@ class Program
     {
         Board board = new Board(5, 5);
 
-        Console.WriteLine("Initial board:");
+        // Turn on some cells around (1,1)
+        board.SetCell(0, 1, true);
+        board.SetCell(1, 2, true);
+        board.SetCell(2, 1, true);
+
         board.Print();
 
-        Console.WriteLine("\nClearing board...");
-        board.Clear();
-
-        Console.WriteLine("\nBoard after clear:");
-        board.Print();
+        int neighbors = board.CountNeighbors(1, 1);
+        Console.WriteLine($"\nNeighbors of (1,1): {neighbors}");
     }
 }

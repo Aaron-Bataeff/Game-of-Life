@@ -61,4 +61,10 @@ public class Board
 
         return count;
     }
+
+    // helper method for testing
+    public void SetCell(int r, int c, bool value)
+    {
+        grid[r, c] = value;
+    }
 }
