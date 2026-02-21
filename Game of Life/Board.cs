@@ -35,4 +35,9 @@ public class Board
             }
         }
     }
+
+    public int CountNeighbors(int row, int col)
+    {
+        return 0;
+    }
 }
