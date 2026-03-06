@@ -44,11 +44,9 @@ public class Board
         {
             for (int c = col - 1; c <= col + 1; c++)
             {
-                // skip the cell itself
                 if (r == row && c == col)
                     continue;
 
-                // stay within bounds
                 if (r >= 0 && r < rows && c >= 0 && c < cols)
                 {
                     if (grid[r, c])
@@ -62,7 +60,6 @@ public class Board
         return count;
     }
 
-    // helper method for testing
     public void SetCell(int r, int c, bool value)
     {
         grid[r, c] = value;
@@ -70,6 +67,31 @@ public class Board
 
     public void NextGeneration()
     {
+        bool[,] nextGrid = new bool[rows, cols];
 
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 0; c < cols; c++)
+            {
+                int neighbors = CountNeighbors(r, c);
+
+                if (grid[r, c]) // cell is alive
+                {
+                    if (neighbors == 2 || neighbors == 3)
+                        nextGrid[r, c] = true;
+                    else
+                        nextGrid[r, c] = false;
+                }
+                else // cell is dead
+                {
+                    if (neighbors == 3)
+                        nextGrid[r, c] = true;
+                    else
+                        nextGrid[r, c] = false;
+                }
+            }
+        }
+
+        grid = nextGrid;
     }
 }
