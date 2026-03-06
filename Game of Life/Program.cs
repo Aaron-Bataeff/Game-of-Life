@@ -5,7 +5,7 @@ class Program
 {
     static void Main()
     {
-        Board board = new Board(5, 5);
+        Board board = new Board(25, 25);
 
         // Starting pattern
         board.SetCell(0, 1, true);
