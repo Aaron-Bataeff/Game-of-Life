@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 class Program
 {
@@ -6,14 +7,22 @@ class Program
     {
         Board board = new Board(5, 5);
 
-        // Turn on some cells around (1,1)
+        // Starting pattern
         board.SetCell(0, 1, true);
         board.SetCell(1, 2, true);
+        board.SetCell(2, 0, true);
         board.SetCell(2, 1, true);
+        board.SetCell(2, 2, true);
 
-        board.Print();
+        for (int i = 0; i < 100; i++)
+        {
+            Console.Clear();
+            Console.WriteLine($"Generation {i}");
+            board.Print();
 
-        int neighbors = board.CountNeighbors(1, 1);
-        Console.WriteLine($"\nNeighbors of (1,1): {neighbors}");
+            board.NextGeneration();
+
+            Thread.Sleep(500);
+        }
     }
 }
