@@ -67,4 +67,9 @@ public class Board
     {
         grid[r, c] = value;
     }
+
+    public void NextGeneration()
+    {
+
+    }
 }
